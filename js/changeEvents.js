@@ -1,11 +1,11 @@
-debugger
+// debugger
 
 var Person = new Backbone.Model();
 Person.on("change:name", function() { console.log('Name changed'); });
-Person.set({name: 'Andrew'});
+Person.set({ name: 'Andrew' });
 // log entry: Name changed
 
-Person.set({name: 'Jeremy'}, {silent: true});
+Person.set({ name: 'Jeremy' }, { silent: true });
 // no log entry
 
 console.log(Person.hasChanged("name"));
