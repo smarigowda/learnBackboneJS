@@ -1,4 +1,4 @@
-debugger
+// debugger
 var Todo = Backbone.Model.extend({
   // Default todo attribute values
   defaults: {
