@@ -22,8 +22,17 @@ function successCallback() {
 	// debugger
 	console.log(todo2)
 	todo2.set('title', 'go fishing');
+	// xhr, async request, http PUT
 	todo2.save();
+	// xhr, async request, http POST
 	todos.create({ title: 'Try out code samples' });
+
+	console.log(todos)
+	debugger
+
+	// xhr, async request
+	todo2.destroy(); // sends HTTP DELETE to /todos/2 and removes from collection
+	console.log(todos)
 }
 
 

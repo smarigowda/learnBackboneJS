@@ -19,12 +19,21 @@ app.get('/todos', function(req, res) {
 app.put('/todos/:id', function(req, res) {
 	debugger
 	console.log('PUT: todos called...')
+	console.log(req.body)
 	res.send('PUT: todos called...')
+})
+
+app.delete('/todos/:id', function(req, res) {
+	debugger
+	console.log('DELETE: todos called...')
+	console.log(req.body)
+	res.send('DELETE: todos called...')
 })
 
 app.post('/todos/', function(req, res) {
 	debugger
 	console.log('POST: todos called...')
+	console.log(req.body)
 	res.send('POST: todos called...')
 })
 
