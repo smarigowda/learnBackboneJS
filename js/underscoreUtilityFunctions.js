@@ -122,12 +122,58 @@ todos.add([
   { title: 'go to Austria.', completed: true }
 ]);
 
-debugger
+// debugger
 // create groups of completed and incomplete models
 var byCompleted = todos.groupBy('completed');
 var completed = new Backbone.Collection(byCompleted[true]);
 console.log(completed.pluck('title'));
 // logs: ["go to Austria."]
+// debugger
+
 debugger
+// pick(): extract a set of attributes from a model
+var Todo = Backbone.Model.extend({
+  defaults: {
+    title: '',
+    completed: false
+  }
+});
+
+var todo = new Todo({ title: 'go to Austria.' });
+console.log(todo.pick('title'));
+// logs {title: "go to Austria"}
+
+debugger
+// omit(): extract all attributes from a model except those listed
+var todo = new Todo({title: 'go to Austria.'});
+console.log(todo.omit('title'));
+// logs {completed: false}
+
+
+debugger
+// keys() and values(): get lists of attribute names and values
+var todo = new Todo({title: 'go to Austria.'});
+console.log(todo.keys());
+// logs: ["title", "completed"]
+
+console.log(todo.values());
+//logs: ["go to Austria.", false]
+
+debugger
+// pairs(): get list of attributes as [key, value] pairs
+var todo = new Todo({title: 'go to Austria.'});
+var pairs = todo.pairs();
+
+console.log(pairs[0]);
+// logs: ["title", "go to Austria."]
+console.log(pairs[1]);
+// logs: ["completed", false]
+
+debugger
+// invert(): create object in which the values are keys and the attributes are values
+var todo = new Todo({title: 'go to Austria.'});
+console.log(todo.invert());
+
+// logs: {'go to Austria.': 'title', 'false': 'completed'}
 
 
