@@ -1,4 +1,4 @@
-debugger
+// debugger
 
 var Todo = Backbone.Model.extend({
   defaults: {
@@ -22,3 +22,9 @@ var Todo = Backbone.Model.extend({
 var myTodo = new Todo();
 myTodo.set('completed', true, { validate: true }); // logs: Remember to set a title for your todo.
 console.log('completed: ' + myTodo.get('completed')); // completed: false , note it is still false
+
+// debugger
+
+// validation error on initialisation
+var emptyTodo = new Todo(null, { validate: true });
+console.log(emptyTodo.validationError);
