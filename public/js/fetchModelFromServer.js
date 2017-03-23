@@ -12,6 +12,18 @@ var TodosCollection = Backbone.Collection.extend({
 
 var todos = new TodosCollection();
 // debugger
-todos.fetch(); // sends HTTP GET to /todos
-debugger
-console.log(todos)
+todos.fetch({ success: successCallback }); // sends HTTP GET to /todos
+// debugger
+
+function successCallback() {
+	console.log('model fetch success')
+	console.log(todos)
+	var todo2 = todos.get(2)
+	// debugger
+	console.log(todo2)
+	// todo2.set('title', 'go fishing');
+	// todo2.save();
+}
+
+
+
