@@ -17,11 +17,13 @@ var TodoView = Backbone.View.extend({
 
   tagName:  'li',
 
+  el: $('#todo'),
+
   // Cache the template function for a single item.
   todoTpl: _.template( $('#item-template').html() ),
 
   events: {
-    'dblclick label': 'edit',
+    'click label': 'edit',
     'keypress .edit': 'updateOnEnter',
     'blur .edit':   'close'
   },
@@ -30,14 +32,14 @@ var TodoView = Backbone.View.extend({
     // In Backbone 1.1.0, if you want to access passed options in
     // your view, you will need to save them as follows:
     this.options = options || {};
-    this.$el = $('#todo');
+    // this.$el = $('#todo');
     // this.$el = $('#todo');
   },
 
   // Re-render the title of the todo item.
   render: function() {
     console.log("test......")
-    debugger
+    // debugger
     this.$el.html( this.todoTpl( this.model.attributes ) );
     this.input = this.$('.edit');
     return this;
@@ -45,6 +47,7 @@ var TodoView = Backbone.View.extend({
 
   edit: function() {
     // executed when todo label is double clicked
+    console.log('edit function...triggered by click on label')
   },
 
   close: function() {
@@ -57,11 +60,11 @@ var TodoView = Backbone.View.extend({
   }
 });
 
-debugger
+// debugger
 
 var todoView = new TodoView({model: myTodo});
 todoView.render()
-debugger
+// debugger
 // var todoView = new TodoView();
 
 // log reference to a DOM element that corresponds to the view instance
