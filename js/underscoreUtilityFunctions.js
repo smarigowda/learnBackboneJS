@@ -130,7 +130,7 @@ console.log(completed.pluck('title'));
 // logs: ["go to Austria."]
 // debugger
 
-debugger
+// debugger
 // pick(): extract a set of attributes from a model
 var Todo = Backbone.Model.extend({
   defaults: {
@@ -143,14 +143,14 @@ var todo = new Todo({ title: 'go to Austria.' });
 console.log(todo.pick('title'));
 // logs {title: "go to Austria"}
 
-debugger
+// debugger
 // omit(): extract all attributes from a model except those listed
 var todo = new Todo({title: 'go to Austria.'});
 console.log(todo.omit('title'));
 // logs {completed: false}
 
 
-debugger
+// debugger
 // keys() and values(): get lists of attribute names and values
 var todo = new Todo({title: 'go to Austria.'});
 console.log(todo.keys());
@@ -159,7 +159,7 @@ console.log(todo.keys());
 console.log(todo.values());
 //logs: ["go to Austria.", false]
 
-debugger
+// debugger
 // pairs(): get list of attributes as [key, value] pairs
 var todo = new Todo({title: 'go to Austria.'});
 var pairs = todo.pairs();
@@ -169,7 +169,7 @@ console.log(pairs[0]);
 console.log(pairs[1]);
 // logs: ["completed", false]
 
-debugger
+// debugger
 // invert(): create object in which the values are keys and the attributes are values
 var todo = new Todo({title: 'go to Austria.'});
 console.log(todo.invert());
