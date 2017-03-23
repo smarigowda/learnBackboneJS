@@ -46,7 +46,6 @@ console.log(todos.map(function(model){
 // returns an array with transformation
 
 // min()/max(): retrieve item with the min or max value of an attribute
-debugger
 var idMax = todos.max(function(model){
   return model.id;
 }).id;
@@ -57,5 +56,78 @@ var idMin = todos.min(function(model){
 
 console.log(`idMax = ${idMax}`)
 console.log(`idMin = ${idMin}`)
+
+// extract a specific attribute
+var captions = todos.pluck('title');
+// debugger
+
+// Filter by id
+
+var Todo = Backbone.Model.extend({
+  defaults: {
+    title: '',
+    completed: false
+  }
+});
+
+var Todos = Backbone.Collection.extend({
+  model: Todo,
+  filterById: function(ids){
+    return this.filter(
+      function(c) { 
+        return _.contains(ids, c.id); 
+      })
+  }
+});
+
+var todos = new Todos()
+
+var todo1 = new Todo({ id: 1 })
+var todo2 = new Todo({ id: 2 })
+var todo3 = new Todo({ id: 3 })
+var todo4 = new Todo({ id: 4 })
+
+todos.add([todo1, todo2, todo3, todo4])
+
+var filteredTodos = todos.filterById([1, 4])
+
+
+// indexOf(): return the index of a particular item within a collection
+
+var people = new Backbone.Collection;
+
+people.comparator = function(a, b) {
+  return a.get('name') < b.get('name') ? -1 : 1;
+};
+
+var tom = new Backbone.Model({name: 'Tom'});
+var rob = new Backbone.Model({name: 'Rob'});
+var tim = new Backbone.Model({name: 'Tim'});
+
+people.add(tom);
+people.add(rob);
+people.add(tim);
+
+console.log(people.indexOf(rob) === 0); // true
+console.log(people.indexOf(tim) === 1); // true
+console.log(people.indexOf(tom) === 2); // true
+
+// groupBy(): group a collection into groups of like items
+
+var todos = new Backbone.Collection();
+
+todos.add([
+  { title: 'go to Belgium.', completed: false },
+  { title: 'go to China.', completed: false },
+  { title: 'go to Austria.', completed: true }
+]);
+
+debugger
+// create groups of completed and incomplete models
+var byCompleted = todos.groupBy('completed');
+var completed = new Backbone.Collection(byCompleted[true]);
+console.log(completed.pluck('title'));
+// logs: ["go to Austria."]
+debugger
 
 
