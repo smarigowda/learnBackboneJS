@@ -21,8 +21,9 @@ function successCallback() {
 	var todo2 = todos.get(2)
 	// debugger
 	console.log(todo2)
-	// todo2.set('title', 'go fishing');
-	// todo2.save();
+	todo2.set('title', 'go fishing');
+	todo2.save();
+	todos.create({ title: 'Try out code samples' });
 }
 
 
