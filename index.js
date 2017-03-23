@@ -3,8 +3,8 @@ var app = express()
 
 app.use(express.static('public'))
 
-app.get('/todo', function(req, res) {
-	console.log('todo called...')
+app.get('/todos', function(req, res) {
+	console.log('todos called...')
 	res.send([{ title: 'finish accounting', completed: false }, { title: 'load test', completed: true }])
 })
 
